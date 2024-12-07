@@ -48,21 +48,25 @@ const VideoRec: FC = () => {
 				<div className={scss.content}>
 					<h1>VideoRec</h1>
 					<div>
-						<p>Status: {status}</p>
-						<input
-							type="text"
-							placeholder="Enter title"
-							value={title}
-							onChange={(e) => setTitle(e.target.value)}
-						/>
-						<textarea
-							placeholder="Enter description"
-							value={description}
-							onChange={(e) => setDescription(e.target.value)}
-						/>
-						<button onClick={startRecording}>Start Recording</button>
-						<button onClick={stopRecording}>Stop Recording</button>
-						<button onClick={uploadVideoFile}>Upload Video</button>
+						<div>
+							<p>Status: {status}</p>
+							<input
+								type="text"
+								placeholder="Enter title"
+								value={title}
+								onChange={(e) => setTitle(e.target.value)}
+							/>
+							<textarea
+								placeholder="Enter description"
+								value={description}
+								onChange={(e) => setDescription(e.target.value)}
+							/>
+						</div>
+						<div>
+							<button onClick={startRecording}>Start Recording</button>
+							<button onClick={stopRecording}>Stop Recording</button>
+							<button onClick={uploadVideoFile}>Upload Video</button>
+						</div>
 					</div>
 					{mediaBlobUrl && <video src={mediaBlobUrl} controls autoPlay loop />}
 					{uploadedVideoUrl && (
