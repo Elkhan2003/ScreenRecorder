@@ -22,14 +22,16 @@ const VideoRec: FC = () => {
 
 			const formData = new FormData();
 			formData.append("file", file);
+			formData.append("title", title);
+			formData.append("description", description);
 
 			const { data } = await axios.post(
-				"https://api.elchocrud.pro/api/v1/upload/file",
+				"https://api.motion.kg/api/v1/upload/youtube-video",
 				formData
 			);
 
-			setUploadedVideoUrl(data.url);
-			alert("Video uploaded successfully: " + data.url);
+			setUploadedVideoUrl(data.videoUrl);
+			alert("Video uploaded successfully: " + data.videoUrl);
 		} catch (error) {
 			console.error("Error uploading video:", error);
 			alert("Failed to upload video. Please try again.");
