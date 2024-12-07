@@ -1,0 +1,101 @@
+.VideoRec {
+	padding: 100px 0;
+	background: linear-gradient(
+		135deg,
+		#1d0033,
+		#3d0072
+	); // Темно-фиолетовый градиент
+	color: #ffffff;
+	min-height: 100vh;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		background: radial-gradient(
+			circle at center,
+			transparent,
+			rgba(61, 0, 114, 0.2)
+		);
+		animation: pulse 6s infinite ease-in-out;
+		z-index: -1;
+	}
+
+	.content {
+		h1 {
+			font-size: 2.5rem;
+			font-weight: bold;
+			background: linear-gradient(90deg, #ff00ff, #00ffff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-transform: uppercase;
+			margin-bottom: 1rem;
+		}
+
+		p {
+			margin-bottom: 1.5rem;
+		}
+
+		button {
+			background: none;
+			border: 1px solid #ffffff;
+			color: #ffffff;
+			padding: 0.75rem 1.5rem;
+			margin: 0.5rem;
+			border-radius: 25px;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+			position: relative;
+			z-index: 1;
+			overflow: hidden;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 200%;
+				height: 100%;
+				background: linear-gradient(
+					90deg,
+					rgba(255, 0, 255, 0.5),
+					rgba(0, 255, 255, 0.5)
+				);
+				z-index: -1;
+				transition: all 0.3s ease-in-out;
+			}
+
+			&:hover {
+				color: #3d0072;
+				background: #ffffff;
+
+				&::before {
+					left: 0;
+				}
+			}
+		}
+
+		video {
+			margin-top: 1.5rem;
+			border: 3px solid #ffffff;
+			border-radius: 8px;
+			box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+			width: 100%;
+			max-width: 700px;
+			height: auto;
+		}
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			transform: scale(1);
+			opacity: 0.8;
+		}
+		50% {
+			transform: scale(1.1);
+			opacity: 1;
+		}
+	}
+}

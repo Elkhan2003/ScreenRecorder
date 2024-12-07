@@ -42,10 +42,8 @@ const VideoRec: FC = () => {
 						<button onClick={startRecording}>Start Recording</button>
 						<button onClick={stopRecording}>Stop Recording</button>
 						<button onClick={uploadVideoFile}>Upload Video</button>
-						{mediaBlobUrl && (
-							<video src={mediaBlobUrl} controls autoPlay loop />
-						)}
 					</div>
+					{mediaBlobUrl && <video src={mediaBlobUrl} controls autoPlay loop />}
 				</div>
 			</div>
 		</section>
