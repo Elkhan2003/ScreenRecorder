@@ -1,15 +1,10 @@
 "use client";
 import { FC } from "react";
 import scss from "./VideoRec.module.scss";
-import { useReactMediaRecorder } from "react-media-recorder";
+import { useVideoRec } from "@/hooks/useVideoRec";
 
 const VideoRec: FC = () => {
-	const { status, startRecording, stopRecording, mediaBlobUrl } =
-		useReactMediaRecorder({
-			screen: true,
-			audio: true,
-			mediaRecorderOptions: { mimeType: "video/webm" },
-		});
+	const { status, startRecording, stopRecording, mediaBlobUrl } = useVideoRec();
 
 	return (
 		<section className={scss.VideoRec}>
@@ -20,7 +15,7 @@ const VideoRec: FC = () => {
 						<p>{status}</p>
 						<button onClick={startRecording}>Start Recording</button>
 						<button onClick={stopRecording}>Stop Recording</button>
-						<video src={mediaBlobUrl} controls autoPlay loop />
+						<video src={mediaBlobUrl!} controls autoPlay loop />
 					</div>
 				</div>
 			</div>
