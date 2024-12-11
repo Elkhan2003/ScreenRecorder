@@ -11,7 +11,7 @@ const VideoRecProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
 		useReactMediaRecorder({
 			screen: true,
 			audio: true,
-			mediaRecorderOptions: { mimeType: "video/webm" },
+			mediaRecorderOptions: { mimeType: "video/mp4" },
 		});
 
 	return (

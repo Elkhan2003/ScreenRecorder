@@ -18,7 +18,7 @@ const VideoRec: FC = () => {
 			}
 
 			const blob = await fetch(mediaBlobUrl).then((res) => res.blob());
-			const file = new File([blob], "video.webm", { type: "video/webm" });
+			const file = new File([blob], "video.mp4", { type: "video/mp4" });
 
 			const formData = new FormData();
 			formData.append("file", file);

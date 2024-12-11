@@ -13,6 +13,7 @@
 		"next": "15.0.3",
 		"react": "19.0.0-rc-66855b96-20241106",
 		"react-dom": "19.0.0-rc-66855b96-20241106",
+		"react-hook-form": "^7.54.0",
 		"react-media-recorder": "^1.7.1",
 		"sass": "1.70.0",
 		"zustand": "^5.0.2"

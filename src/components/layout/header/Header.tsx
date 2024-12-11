@@ -10,6 +10,7 @@ const Header: FC = () => {
 				<div className={scss.content}>
 					<Link href="/">Home</Link>
 					<Link href="/video">Video</Link>
+					<Link href="/telegram">Telegram</Link>
 				</div>
 			</div>
 		</header>
