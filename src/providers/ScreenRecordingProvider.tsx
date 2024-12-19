@@ -1,15 +1,8 @@
 "use client";
 import React, { FC, createContext, useState, ReactNode, useRef } from "react";
 
-type RecordingStatus = "not started" | "recording" | "stopped" | "error";
-
-export const ScreenRecordingContext = createContext<{
-	startRecording: () => Promise<void>;
-	stopRecording: () => void;
-	downloadRecording: () => void;
-	mediaBlobUrl: string | null;
-	status: RecordingStatus;
-} | null>(null);
+export const ScreenRecordingContext =
+	createContext<ScreenRecordingContextType | null>(null);
 
 const ScreenRecordingProvider: FC<{ children: ReactNode }> = ({ children }) => {
 	const [mediaBlobUrl, setMediaBlobUrl] = useState<string | null>(null);
