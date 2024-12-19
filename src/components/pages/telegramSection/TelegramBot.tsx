@@ -9,7 +9,7 @@ interface ITelegramForm {
 	title: string;
 }
 
-const TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
+const BOT_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
 const CHAT_ID = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
 
 const TelegramBot: FC = () => {
@@ -27,12 +27,12 @@ const TelegramBot: FC = () => {
 			const blob = await response.blob();
 
 			const formData = new FormData();
-			formData.append("chat_id", CHAT_ID!);
+			formData.append("chat_id", "792954838");
 			formData.append("video", blob, `${data.title || "video"}.mp4`);
 			formData.append("caption", data.title || "No title provided");
 
 			await axios.post(
-				`https://api.telegram.org/bot${TOKEN}/sendVideo`,
+				`https://api.telegram.org/bot${BOT_TOKEN}/sendVideo`,
 				formData
 			);
 

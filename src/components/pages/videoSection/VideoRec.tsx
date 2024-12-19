@@ -1,11 +1,17 @@
 "use client";
 import { FC, useState } from "react";
 import scss from "./VideoRec.module.scss";
-import { useVideoRec } from "@/hooks/useVideoRec";
 import axios from "axios";
+import { useScreenRecording } from "@/hooks/useScreenRecording";
 
 const VideoRec: FC = () => {
-	const { status, startRecording, stopRecording, mediaBlobUrl } = useVideoRec();
+	const {
+		status,
+		startRecording,
+		stopRecording,
+		mediaBlobUrl,
+		downloadRecording,
+	} = useScreenRecording();
 	const [uploadedVideoUrl, setUploadedVideoUrl] = useState<string | null>(null);
 	const [title, setTitle] = useState<string>("");
 	const [description, setDescription] = useState<string>("");
@@ -63,9 +69,24 @@ const VideoRec: FC = () => {
 							/>
 						</div>
 						<div>
-							<button onClick={startRecording}>Start Recording</button>
-							<button onClick={stopRecording}>Stop Recording</button>
-							<button onClick={uploadVideoFile}>Upload Video</button>
+							{(status === "not started" || status === "stopped") && (
+								<>
+									<button onClick={startRecording}>Start Recording</button>
+								</>
+							)}
+							{status === "recording" && (
+								<>
+									<button onClick={stopRecording}>Stop Recording</button>
+								</>
+							)}
+							{status === "stopped" && (
+								<>
+									<button onClick={uploadVideoFile}>Upload Recording</button>
+									<button onClick={downloadRecording}>
+										Download Recording
+									</button>
+								</>
+							)}
 						</div>
 					</div>
 					{mediaBlobUrl && <video src={mediaBlobUrl} controls autoPlay loop />}
