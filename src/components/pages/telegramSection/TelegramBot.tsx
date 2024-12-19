@@ -3,7 +3,7 @@ import { FC } from "react";
 import scss from "./TelegramBot.module.scss";
 import axios from "axios";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useVideoRec } from "@/hooks/useVideoRec";
+import { useScreenRecording } from "@/hooks/useScreenRecording";
 
 interface ITelegramForm {
 	title: string;
@@ -13,7 +13,7 @@ const BOT_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
 const CHAT_ID = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
 
 const TelegramBot: FC = () => {
-	const { mediaBlobUrl } = useVideoRec();
+	const { mediaBlobUrl } = useScreenRecording();
 	const { register, handleSubmit } = useForm<ITelegramForm>();
 
 	const onSubmit: SubmitHandler<ITelegramForm> = async (data) => {
